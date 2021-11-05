@@ -1,4 +1,4 @@
-# "the Rush" 
+# "The Rush" 
 This is a dynamic database web app that displays all NFL players rushing statistics. I have completed this project by building a React web app that utilizes react-tables to handle filtering, sorting and searching. The user can also download the filtered and sorted data to a CSV file. The user can sort by any column in the table as well as increase/decrease the page size. The solution is also incredibly efficient and can easily handle 10,000 entires. How do I know? I created a mock data set with generated data that fits this projects criteria. It can be used in place of the given data set by changing "SampleData" to "BigData" in line 17 of src/components/table.js. The project uses the standard dataset by default.
 
 
@@ -34,13 +34,13 @@ In order to run, you must have the latest version of VS Code, Node >= 14.0.0 and
 
 1. Download this solution as a ZIP and Un-zip.
 2. Navigate to folder in VS Code.
-3. In the terminal "npm i". This will install all depencies.
+3. In the terminal "npm i". This will install all dependencies.
 4. In the terminal: "npm run start". This will run the web app at http://localhost:3000.
 
-![alt text](https://imgur.com/a/zDoX6zn)
+![alt text](https://github.com/JoshB63/theRush-React-/blob/master/TheRushHome.PNG?raw=true)
 
 ## Troubleshooting
-Ensure that all the latest version of any required packages are installed. If you run into any additional problems, email me.
+Ensure that all the latest versions of any required packages are installed. If you run into any additional problems, email me.
 
 
 
