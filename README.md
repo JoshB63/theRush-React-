@@ -22,16 +22,15 @@ We have sets of records representing football players' rushing statistics. All r
 
 ##### Requirements
 1. Create a web app. This must be able to do the following steps
-    1. Create a webpage which displays a table with the contents of [`rushing.json`](/rushing.json) - [x]
-    2. The user should be able to sort the players by _Total Rushing Yards_, _Longest Rush_ and _Total Rushing Touchdowns_ - [x]
-    3. The user should be able to filter by the player's name - [x]
-    4. The user should be able to download the sorted data as a CSV, as well as a filtered subset - [x]
-    
-2. The system should be able to potentially support larger sets of data on the order of 10k records. - [x]
+   - [x] 1. Create a webpage which displays a table with the contents of [`rushing.json`](/rushing.json) 
+   - [x] 2. The user should be able to sort the players by _Total Rushing Yards_, _Longest Rush_ and _Total Rushing Touchdowns_ 
+   - [x] 3. The user should be able to filter by the player's name 
+   - [x] 4. The user should be able to download the sorted data as a CSV, as well as a filtered subset 
+   - [x] 5. The system should be able to potentially support larger sets of data on the order of 10k records. 
 
 
 ### Installation and running this solution
-In order to run, you must have the latest version of VS Code, Node, NPM, NPX installed on your machine.
+In order to run, you must have the latest version of VS Code, Node >= 14.0.0 and npm >= 5.6 installed on your machine.
 
 1. Download this solution as a ZIP and Un-zip.
 2. Navigate to folder in VS Code.
