@@ -39,6 +39,8 @@ In order to run, you must have the latest version of VS Code, Node >= 14.0.0 and
 
 ![alt text](https://github.com/JoshB63/theRush-React-/blob/master/TheRushHome.PNG?raw=true)
 
+Note: To stop running local instance, "CTRL + C" in the terminal to stop instance and select yes.
+
 ## Troubleshooting
 Ensure that all the latest versions of any required packages are installed. If you run into any additional problems, email me.
 
