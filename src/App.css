@@ -45,3 +45,23 @@ footer a {
   color: #3c97bf;
   text-decoration: none;
 }
+
+#styled-select select {
+  width: 50px;
+  padding: 5px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  text-indent: 0.01px;
+  text-overflow: "";
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#small-select {
+  width: 60px;
+}

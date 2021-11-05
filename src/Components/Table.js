@@ -14,7 +14,7 @@ import { CSVLink } from "react-csv";
 export const DataTable = () => {
   //UseMemo hook ensures data isn't recreated on every render.
   const columns = useMemo(() => Columns, []);
-  const data = useMemo(() => BigData, []);
+  const data = useMemo(() => SampleData, []);
   // const tableRender = useTable({ columns, data });
 
   const instance = useTable(
@@ -38,13 +38,14 @@ export const DataTable = () => {
     canPreviousPage,
     pageOptions,
     gotoPage,
+    setPageSize,
     pageCount,
     prepareRow,
     state,
     setGlobalFilter,
   } = instance;
 
-  const { globalFilter, pageIndex } = state;
+  const { globalFilter, pageIndex, pageSize } = state;
 
   //Filters data for CSV download
   const rowData = instance.rows.map((row) => {
@@ -54,9 +55,23 @@ export const DataTable = () => {
 
   return (
     <>
-      {console.log(rowData)}
-      <CSVLink data={rowData}>Download CSV</CSVLink>
-      <TextFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <row id="header">
+        <CSVLink data={rowData}>Download CSV</CSVLink>
+        <TextFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        <label id="styled-select">
+          Entries
+          <select
+            value={pageSize}
+            onChange={(e) => setPageSize(Number(e.target.value))}
+          >
+            {[10, 25, 50, 100].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </select>
+        </label>
+      </row>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -96,42 +111,56 @@ export const DataTable = () => {
         </tbody>
       </table>
       <div>
-        <row>
-          <button
-            className="button button-rounded-hover"
-            disabled={!canPreviousPage}
-            onClick={() => gotoPage(0)}
-          >
-            {"<<"}
-          </button>
-          <button
-            className="button button-rounded-hover"
-            disabled={!canPreviousPage}
-            onClick={() => previousPage()}
-          >
-            Prev
-          </button>
-          <span>
-            {"  "}
+        <row id="header">
+          <div>
+            <button
+              className="button button-rounded-hover"
+              disabled={!canPreviousPage}
+              onClick={() => gotoPage(0)}
+            >
+              {"<<"}
+            </button>
+            <button
+              className="button button-rounded-hover"
+              disabled={!canPreviousPage}
+              onClick={() => previousPage()}
+            >
+              Prev
+            </button>
+          </div>
+          <span id="header">
             <strong>
               {pageIndex + 1} / {pageOptions.length}
             </strong>
-            {"  "}
+            | Page:{" "}
+            <input
+              type="number"
+              id="small-select"
+              defaultValue={pageIndex + 1}
+              onChange={(e) => {
+                const pageNumber = e.target.value
+                  ? Number(e.target.value) - 1
+                  : 0;
+                gotoPage(pageNumber);
+              }}
+            />
           </span>
-          <button
-            className="button button-rounded-hover"
-            disabled={!canNextPage}
-            onClick={() => nextPage()}
-          >
-            Next
-          </button>
-          <button
-            className="button button-rounded-hover"
-            disabled={!canNextPage}
-            onClick={() => gotoPage(pageCount - 1)}
-          >
-            {">>"}
-          </button>
+          <div>
+            <button
+              className="button button-rounded-hover"
+              disabled={!canNextPage}
+              onClick={() => nextPage()}
+            >
+              Next
+            </button>
+            <button
+              className="button button-rounded-hover"
+              disabled={!canNextPage}
+              onClick={() => gotoPage(pageCount - 1)}
+            >
+              {">>"}
+            </button>
+          </div>
         </row>
       </div>
     </>
