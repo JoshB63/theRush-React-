@@ -76,8 +76,7 @@ export const DataTable = () => {
 
   return (
     <>
-      {console.log(rowData)}
-      <row id="header">
+      <div id="header">
         <CSVLink data={rowData}>Download CSV</CSVLink>
         <TextFilter filter={globalFilter} setFilter={setGlobalFilter} />
         <label id="styled-select">
@@ -93,7 +92,7 @@ export const DataTable = () => {
             ))}
           </select>
         </label>
-      </row>
+      </div>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -133,7 +132,7 @@ export const DataTable = () => {
         </tbody>
       </table>
       <div>
-        <row id="header">
+        <div id="header">
           <div>
             <button
               className="button button-rounded-hover"
@@ -171,7 +170,7 @@ export const DataTable = () => {
               {">>"}
             </button>
           </div>
-        </row>
+        </div>
       </div>
     </>
   );
