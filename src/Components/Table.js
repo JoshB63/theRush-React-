@@ -53,8 +53,30 @@ export const DataTable = () => {
     return row.cells.map((cell) => cell.value);
   });
 
+  const headers = [
+    "Player",
+    "Team",
+    "Position",
+    "Att",
+    "AttG",
+    "Yds",
+    "Avg",
+    "YdsG",
+    "TD",
+    "Lng",
+    "1st",
+    "1st%",
+    "20+",
+    "40+",
+    "FUM",
+  ];
+
+  //Adds header row to front of rowData array. Easier than pulling it and cleaning it from instance.
+  rowData.unshift(headers);
+
   return (
     <>
+      {console.log(rowData)}
       <row id="header">
         <CSVLink data={rowData}>Download CSV</CSVLink>
         <TextFilter filter={globalFilter} setFilter={setGlobalFilter} />
@@ -132,18 +154,6 @@ export const DataTable = () => {
             <strong>
               {pageIndex + 1} / {pageOptions.length}
             </strong>
-            | Page:{" "}
-            <input
-              type="number"
-              id="small-select"
-              defaultValue={pageIndex + 1}
-              onChange={(e) => {
-                const pageNumber = e.target.value
-                  ? Number(e.target.value) - 1
-                  : 0;
-                gotoPage(pageNumber);
-              }}
-            />
           </span>
           <div>
             <button
