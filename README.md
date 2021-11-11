@@ -34,7 +34,7 @@ In order to run, you must have the latest version of VS Code, Node >= 14.0.0 and
 
 1. Download this solution as a ZIP and Un-zip.
 2. Navigate to folder in VS Code.
-3. In the terminal "npm i". This will install all dependencies.
+3. In the terminal: "npm i". This will install all dependencies.
 4. In the terminal: "npm run start". This will run the web app at http://localhost:3000.
 
 ![alt text](https://github.com/JoshB63/theRush-React-/blob/master/TheRushHome.PNG?raw=true)
